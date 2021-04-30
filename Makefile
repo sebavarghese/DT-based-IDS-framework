@@ -6,5 +6,6 @@ clean:
 	sudo rm -rf DigitalTwin-SIEM-integration/src/logs/u*
 	sudo rm -rf DigitalTwin-SIEM-integration/src/logs/h*
 	sudo rm -rf DigitalTwin-SIEM-integration/src/logs/d*
+	sudo rm -rf DigitalTwin-SIEM-integration/src/logs/l*
 	sudo rm -rf DigitalTwin-SIEM-integration/src/pcaps
 	sudo rm -rf DigitalTwin-SIEM-integration/src/trigger.txt
