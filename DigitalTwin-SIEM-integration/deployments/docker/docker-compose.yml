@@ -1,0 +1,107 @@
+version: "3"
+services:
+
+  elasticsearch:
+    container_name: elasticsearch
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.6.1
+    environment:
+      - discovery.type=single-node
+      - "ES_JAVA_OPTS=-Xms256m -Xmx256m"
+      - cluster.routing.allocation.disk.threshold_enabled=false
+      - xpack.security.enabled=false
+      - xpack.monitoring.enabled=false
+      - xpack.ml.enabled=false
+      - xpack.graph.enabled=false
+      - xpack.watcher.enabled=false
+      - http.cors.enabled=true
+      - http.cors.allow-origin=/https?:\/\/$HOST_IP(:[0-9]+)?/
+    ports:
+      - 9200:9200
+    networks:
+      - siemnet
+    volumes:
+      - es-data:/usr/share/elasticsearch/data
+
+  logstash:
+    container_name: logstash
+    image: defenxor/docker-logstash:7.4.0
+    command:
+      - -f/etc/logstash/conf.d
+    environment:
+      - XPACK_MONITORING_ENABLED=false
+    networks:
+      - siemnet
+    volumes:
+      - ./conf/logstash/conf.d:/etc/logstash/conf.d
+      - ./conf/logstash/index-template.d/es7:/etc/logstash/index-template.d
+
+  kibana:
+    container_name: kibana
+    image: docker.elastic.co/kibana/kibana:7.6.1
+    environment:
+      - XPACK_MONITORING_ENABLED=false
+    ports:
+      - 5601:5601
+    networks:
+      - siemnet
+
+  dsiem:
+    container_name: dsiem
+    image: defenxor/dsiem:latest
+    ports:
+      - "8080:8080"
+    networks:
+      - siemnet
+    volumes:
+      - dsiem-log:/dsiem/logs
+      - ./conf/dsiem/configs:/dsiem/configs
+    environment:
+      - DSIEM_WEB_ESURL=http://$HOST_IP:9200
+      - DSIEM_WEB_KBNURL=http://$HOST_IP:5601
+
+  filebeat:
+    container_name: filebeat
+    image: docker.elastic.co/beats/filebeat:7.4.0
+    user: root
+    networks:
+      - siemnet
+    volumes:
+      - filebeat-data:/usr/share/filebeat/data
+      - ./conf/filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml
+      - dsiem-log:/var/log/dsiem
+      - digital-twin-log:/var/log/digital_twin
+
+  filebeat-es:
+    container_name: filebeat-es
+    image: docker.elastic.co/beats/filebeat:7.4.0
+    user: root
+    networks:
+      - siemnet
+    volumes:
+      - ./conf/filebeat-es/filebeat.yml:/usr/share/filebeat/filebeat.yml
+      - ./conf/filebeat-es/fields.yml:/usr/share/filebeat/fields.yml
+      - ./conf/filebeat-es/module:/usr/share/filebeat/module
+      - ./conf/filebeat-es/modules.d:/usr/share/filebeat/modules.d
+      - filebeat-es-data:/usr/share/filebeat/data
+      - dsiem-log:/var/log/dsiem
+
+  digital_twin:
+    image: antumin/digital-twin:first
+    container_name: digital_twin
+    privileged: true
+    network_mode: "host"
+    volumes:
+      - digital-twin-log:/src/logs
+      - ../../src:/src
+    depends_on:
+        - filebeat
+
+volumes:
+  filebeat-es-data:
+  filebeat-data:
+  es-data:
+  dsiem-log:
+  digital-twin-log:
+
+networks:
+  siemnet:
