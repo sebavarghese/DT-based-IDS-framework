@@ -14,7 +14,6 @@ with open('data.csv','r') as csvinput:
             elif int(row[0]) == 0 and (float(row[6]) <= tank_lb or float(row[5]) >= SENSOR2_THRESH or float(row[7]) >= bottle_ub):
                 writer.writerow(row+['normal'])
             elif int(row[0]) == 1 and float(row[7]) < bottle_ub and float(row[6]) > tank_lb:
-                print('Hey')
                 writer.writerow(row+['normal'])
             else:
                 writer.writerow(row+['anomaly'])
