@@ -17,4 +17,3 @@ with open('data.csv','r') as csvinput:
                 writer.writerow(row+['normal'])
             else:
                 writer.writerow(row+['anomaly'])
-
