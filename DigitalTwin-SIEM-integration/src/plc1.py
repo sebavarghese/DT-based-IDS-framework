@@ -33,13 +33,13 @@ class FPPLC1(PLC):
 
     def store_values(self, liquidlevel_tank, flowlevel, liquidlevel_bottle, motor_status, count):
         with open('logs/data.csv', 'a+') as writeobj:
-            fieldnames={'timestamp','ll_tank', 'ub_tank','lb_tank', 'flowlevel', 'sensor2_thresh','ll_bottle','ub_bottle','lb_bottle','motor_status'}
+            fieldnames={'timestamp','tank_liquidlevel', 'tank_upperbound','tank_lowerbound', 'flowlevel', 'sensor2_thresh','bottle_liquidlevel','bottle_upperbound','bottle_lowerbound','motor_status'}
             csv_writer = csv.DictWriter(writeobj, fieldnames=fieldnames)
             if count == 0:
                 csv_writer.writeheader()
                 count = 1
 
-            csv_writer.writerow({'timestamp': str(datetime.datetime.now()),'ll_tank': liquidlevel_tank, 'ub_tank': TANK_M['UpperBound'] , 'lb_tank': TANK_M['LowerBound'], 'flowlevel': flowlevel, 'sensor2_thresh': SENSOR2_THRESH,'ll_bottle': liquidlevel_bottle,'ub_bottle': BOTTLE_M['UpperBound'],'lb_bottle': BOTTLE_M['LowerBound'],'motor_status': motor_status})
+            csv_writer.writerow({'timestamp': str(datetime.datetime.now()),'tank_liquidlevel': liquidlevel_tank, 'tank_upperbound': TANK_M['UpperBound'] , 'tank_lowerbound': TANK_M['LowerBound'], 'flowlevel': flowlevel, 'sensor2_thresh': SENSOR2_THRESH,'bottle_liquidlevel': liquidlevel_bottle,'bottle_upperbound': BOTTLE_M['UpperBound'],'bottle_lowerbound': BOTTLE_M['LowerBound'],'motor_status': motor_status})
 
     def main_loop(self):
         """plc1 main loop.

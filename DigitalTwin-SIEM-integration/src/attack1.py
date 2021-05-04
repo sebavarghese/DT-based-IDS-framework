@@ -33,7 +33,7 @@ class FPHMI(HMI):
             toggle_status = int(not motor_status)
             self.set(ACTUATOR1, toggle_status)
             self.send(ACTUATOR1, toggle_status, PLC1_ADDR)
-            time.sleep(1)
+            time.sleep(0.5)
 
 if __name__ == "__main__":
 

@@ -11,9 +11,9 @@ with open('data.csv','r') as csvinput:
         for row in csv.reader(csvinput):
             if row[0] == "motor_status":
                 writer.writerow(row+["traffic"])
-            elif int(row[0]) == 0 and (float(row[6]) <= tank_lb or float(row[5]) >= SENSOR2_THRESH or float(row[7]) >= bottle_ub):
+            elif int(row[0]) == 0 and (float(row[7]) <= tank_lb or float(row[4]) >= SENSOR2_THRESH or float(row[2]) >= bottle_ub):
                 writer.writerow(row+['normal'])
-            elif int(row[0]) == 1 and float(row[7]) < bottle_ub and float(row[6]) > tank_lb:
+            elif int(row[0]) == 1 and float(row[2]) < bottle_ub and float(row[7]) > tank_lb:
                 writer.writerow(row+['normal'])
             else:
                 writer.writerow(row+['anomaly'])
