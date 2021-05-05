@@ -88,6 +88,7 @@ class FPPLC1(PLC):
                             flowlevel, SENSOR2_THRESH))
             except:
                 logging.warning("Flow level (SENSOR 2) is not received. Program is unable to proceed properly")
+                flowlevel = ''
 
             # read from PLC3
             try:
@@ -112,6 +113,7 @@ class FPPLC1(PLC):
                     self.send(ACTUATOR1, 1, PLC1_ADDR)
             except:
                 logging.warning("Liquid level (SENSOR 3) is not received. Program is unable to proceed properly")
+                liquidlevel_bottle = ''
             
             motor_status = int(self.get(ACTUATOR1))
 	    if os.path.isfile('trigger.txt'): 
