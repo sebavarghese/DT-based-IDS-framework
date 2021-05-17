@@ -28,20 +28,17 @@ class FPHMI(HMI):
                             datefmt='%m/%d/%Y %H:%M:%S', level=logging.DEBUG)
         while(True):
             # network capabilities
-            motor_status = int(self.receive(ACTUATOR1, PLC1_ADDR))
-            #liquid_level = float(self.get(LIQUID_LEVEL_TANK))
-            print(motor_status)
-            #print(liquid_level)
             try:
                 user_input = int(raw_input(
                     "\n Please choose from the following options: \n Read motor status: Press 1 \n Change motor status: Press 2\n Shutdown HMI program: Press 99 \n"))
                 print('DEBUG: input = ', user_input)
 
-                if user_input == 1:  # read motor status 
+                if user_input == 1:  # read motor status
+                    motor_status = int(self.receive(ACTUATOR1, PLC1_ADDR))
                     print("DEBUG pressed 2 (read motor status) \n Motor status: ", motor_status)
 
                 elif user_input == 2:
-                    print("DEBUG pressed 2 \n Motor status: ", motor_status)
+                    print("DEBUG pressed 2 \n ")
                     change = raw_input("Do you wish to change the motor status? Y/N \n")
                     print("DEBUG typed ", change)
                     if change == "Y" or change == "y":
@@ -51,7 +48,7 @@ class FPHMI(HMI):
                         logging.info('Sent status to PLC (%s): %d' % (PLC1_ADDR, new_status))
                         self.set(ACTUATOR1, new_status)
                         self.send(ACTUATOR1, new_status, PLC1_ADDR)
-                        print('Changed motor status from %d to %d' % (motor_status, new_status))
+                        print('Changed motor status to %d', new_status)
                     except (RuntimeError, TypeError, NameError):
                         logging.warning('New status (%d) could not be sent to PLC (%s).' % (new_status, PLC1_ADDR))
 

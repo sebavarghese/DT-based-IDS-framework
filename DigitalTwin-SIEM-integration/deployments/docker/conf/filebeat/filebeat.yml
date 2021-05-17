@@ -41,6 +41,12 @@ filebeat.inputs:
   fields_under_root: true
   fields: { application: digital_twin }
 
+- type: log
+  paths:
+    - "/var/log/digital_twin/*.csv"
+  fields_under_root: true
+  fields: { application: digital_twin }
+
 output:
  logstash:
    hosts: ["logstash:5001"]

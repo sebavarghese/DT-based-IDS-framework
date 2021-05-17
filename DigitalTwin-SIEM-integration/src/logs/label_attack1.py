@@ -4,8 +4,8 @@ tank_lb = 0.3
 tank_ub = 5.81
 bottle_ub = 0.9
 
-with open('testdata.csv','r') as csvinput:
-    with open('testlabelled.csv', 'w') as csvoutput:
+with open('data.csv','r') as csvinput:
+    with open('labelled.csv', 'w') as csvoutput:
         writer = csv.writer(csvoutput)
 
         for row in csv.reader(csvinput):
