@@ -1,8 +1,8 @@
 #!/bin/bash
-
-cd src
+#!/bin/bash
 service openvswitch-switch start
+ovs-vsctl set-manager ptcp:6640
+cd DigitalTwin-SIEM-integration/src
 mn -c
 python init.py
-screen -dmSL main python run.py
-tail -f /dev/null
+python run.py

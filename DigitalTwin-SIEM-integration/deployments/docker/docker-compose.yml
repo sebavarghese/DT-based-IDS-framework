@@ -86,8 +86,10 @@ services:
       - dsiem-log:/var/log/dsiem
 
   digital_twin:
-    image: antumin/digital-twin:first
+    build: ../../build/digital_twin
     container_name: digital_twin
+    environment:
+      - DISPLAY=${DISPLAY}
     privileged: true
     network_mode: "host"
     volumes:
