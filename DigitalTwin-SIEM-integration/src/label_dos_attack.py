@@ -1,7 +1,7 @@
 import csv
 
 with open('logs/data.csv','r') as csvinput:
-    with open('labelled.csv', 'w') as csvoutput:
+    with open('logs/labelled.csv', 'w') as csvoutput:
         writer = csv.writer(csvoutput)
         for row in csv.reader(csvinput):
             if row[0] == "motor_status":

@@ -7,6 +7,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
     iproute2 \
     iputils-ping \
     net-tools \
+    iptables \
     python2.7 \
     python-pip \
     openvswitch-switch \
@@ -28,6 +29,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
  && pip install --upgrade setuptools \
  && pip install minicps \
  && pip install cpppo==4.1.0 \
+ && pip install scapy \
  && pip install NetfilterQueue \
  && apt-get clean \
  && rm -rf /var/lib/apt \

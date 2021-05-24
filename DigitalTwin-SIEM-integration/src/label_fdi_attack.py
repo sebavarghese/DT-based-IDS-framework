@@ -5,7 +5,7 @@ tank_ub = 5.81
 bottle_ub = 0.9
 
 with open('logs/data.csv','r') as csvinput:
-    with open('labelled.csv', 'w') as csvoutput:
+    with open('logs/labelled.csv', 'w') as csvoutput:
         writer = csv.writer(csvoutput)
 
         for row in csv.reader(csvinput):
