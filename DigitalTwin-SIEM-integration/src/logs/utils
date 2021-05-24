@@ -1,0 +1,146 @@
+2021-05-24 20:33:47,900 - mininet - DEBUG - 
+
+2021-05-24 20:33:47,901 - mininet - DEBUG - 1 packets transmitted, 1 received, 0% packet loss, time 0ms
+2021-05-24 20:33:47,901 - mininet - DEBUG - 
+
+2021-05-24 20:33:47,901 - mininet - DEBUG - rtt min/avg/max/mdev = 1.390/1.390/1.390/0.000 ms
+2021-05-24 20:33:47,901 - mininet - DEBUG - 
+
+2021-05-24 20:33:47,902 - mininet - DEBUG - 
+2021-05-24 20:33:47,902 - mininet - Level 25 - plc3 
+2021-05-24 20:33:47,902 - mininet - Level 25 - 
+
+2021-05-24 20:33:47,902 - mininet - Level 25 - plc3 -> 
+2021-05-24 20:33:47,903 - mininet - DEBUG - *** plc3 : ('ping -c1  10.0.0.5',)
+
+2021-05-24 20:33:47,916 - mininet - DEBUG - PING 10.0.0.5 (10.0.0.5) 56(84) bytes of data.
+2021-05-24 20:33:47,916 - mininet - DEBUG - 
+
+2021-05-24 20:33:47,918 - mininet - DEBUG - 64 bytes from 10.0.0.5: icmp_seq=1 ttl=64 time=1.02 ms
+2021-05-24 20:33:47,918 - mininet - DEBUG - 
+
+2021-05-24 20:33:47,918 - mininet - DEBUG - 
+
+2021-05-24 20:33:47,918 - mininet - DEBUG - --- 10.0.0.5 ping statistics ---
+2021-05-24 20:33:47,919 - mininet - DEBUG - 
+
+2021-05-24 20:33:47,919 - mininet - DEBUG - 1 packets transmitted, 1 received, 0% packet loss, time 0ms
+2021-05-24 20:33:47,919 - mininet - DEBUG - 
+
+2021-05-24 20:33:47,919 - mininet - DEBUG - rtt min/avg/max/mdev = 1.027/1.027/1.027/0.000 ms
+2021-05-24 20:33:47,920 - mininet - DEBUG - 
+
+2021-05-24 20:33:47,920 - mininet - DEBUG - 
+2021-05-24 20:33:47,920 - mininet - Level 25 - attacker 
+2021-05-24 20:33:47,921 - mininet - DEBUG - *** plc3 : ('ping -c1  10.0.0.4',)
+
+2021-05-24 20:33:47,932 - mininet - DEBUG - PING 10.0.0.4 (10.0.0.4) 56(84) bytes of data.
+2021-05-24 20:33:47,932 - mininet - DEBUG - 
+
+2021-05-24 20:33:47,933 - mininet - DEBUG - 64 bytes from 10.0.0.4: icmp_seq=1 ttl=64 time=0.999 ms
+2021-05-24 20:33:47,934 - mininet - DEBUG - 
+
+2021-05-24 20:33:47,934 - mininet - DEBUG - 
+
+2021-05-24 20:33:47,934 - mininet - DEBUG - --- 10.0.0.4 ping statistics ---
+2021-05-24 20:33:47,934 - mininet - DEBUG - 
+
+2021-05-24 20:33:47,935 - mininet - DEBUG - 1 packets transmitted, 1 received, 0% packet loss, time 0ms
+2021-05-24 20:33:47,935 - mininet - DEBUG - 
+
+2021-05-24 20:33:47,935 - mininet - DEBUG - rtt min/avg/max/mdev = 0.999/0.999/0.999/0.000 ms
+2021-05-24 20:33:47,935 - mininet - DEBUG - 
+
+2021-05-24 20:33:47,936 - mininet - DEBUG - 
+2021-05-24 20:33:47,936 - mininet - Level 25 - hmi 
+2021-05-24 20:33:47,936 - mininet - DEBUG - *** plc3 : ('ping -c1  10.0.0.1',)
+
+2021-05-24 20:33:47,950 - mininet - DEBUG - PING 10.0.0.1 (10.0.0.1) 56(84) bytes of data.
+2021-05-24 20:33:47,950 - mininet - DEBUG - 
+
+2021-05-24 20:33:47,952 - mininet - DEBUG - 64 bytes from 10.0.0.1: icmp_seq=1 ttl=64 time=1.11 ms
+2021-05-24 20:33:47,952 - mininet - DEBUG - 
+
+2021-05-24 20:33:47,952 - mininet - DEBUG - 
+
+2021-05-24 20:33:47,953 - mininet - DEBUG - --- 10.0.0.1 ping statistics ---
+2021-05-24 20:33:47,953 - mininet - DEBUG - 
+
+2021-05-24 20:33:47,953 - mininet - DEBUG - 1 packets transmitted, 1 received, 0% packet loss, time 0ms
+2021-05-24 20:33:47,953 - mininet - DEBUG - 
+
+2021-05-24 20:33:47,954 - mininet - DEBUG - rtt min/avg/max/mdev = 1.119/1.119/1.119/0.000 ms
+2021-05-24 20:33:47,954 - mininet - DEBUG - 
+
+2021-05-24 20:33:47,954 - mininet - DEBUG - 
+2021-05-24 20:33:47,955 - mininet - Level 25 - plc1 
+2021-05-24 20:33:47,955 - mininet - DEBUG - *** plc3 : ('ping -c1  10.0.0.2',)
+
+2021-05-24 20:33:47,980 - mininet - DEBUG - PING 10.0.0.2 (10.0.0.2) 56(84) bytes of data.
+2021-05-24 20:33:47,980 - mininet - DEBUG - 
+
+2021-05-24 20:33:47,982 - mininet - DEBUG - 64 bytes from 10.0.0.2: icmp_seq=1 ttl=64 time=1.10 ms
+2021-05-24 20:33:47,982 - mininet - DEBUG - 
+
+2021-05-24 20:33:47,982 - mininet - DEBUG - 
+
+2021-05-24 20:33:47,982 - mininet - DEBUG - --- 10.0.0.2 ping statistics ---
+2021-05-24 20:33:47,983 - mininet - DEBUG - 
+
+2021-05-24 20:33:47,983 - mininet - DEBUG - 1 packets transmitted, 1 received, 0% packet loss, time 0ms
+2021-05-24 20:33:47,983 - mininet - DEBUG - 
+
+2021-05-24 20:33:47,983 - mininet - DEBUG - rtt min/avg/max/mdev = 1.104/1.104/1.104/0.000 ms
+2021-05-24 20:33:47,983 - mininet - DEBUG - 
+
+2021-05-24 20:33:47,984 - mininet - DEBUG - 
+2021-05-24 20:33:47,984 - mininet - Level 25 - plc2 
+2021-05-24 20:33:47,984 - mininet - Level 25 - 
+
+2021-05-24 20:33:47,985 - mininet - Level 25 - *** Results: 0% dropped (20/20 received)
+
+2021-05-24 20:33:47,985 - mininet - DEBUG - *** errRun: ['xhost', '+si:localuser:root'] 
+
+2021-05-24 20:33:47,996 - mininet - DEBUG - localuser:root being added to access control list
+  0
+2021-05-24 20:33:48,001 - mininet - DEBUG - _popen ['mnexec', '-da', '3262', 'xterm', '-title', '"Node: s1" (root)', '-display', ':0', '-e', 'env TERM=ansi python physical_process.py'] 3401
+2021-05-24 20:33:48,202 - mininet - DEBUG - *** errRun: ['xhost', '+si:localuser:root'] 
+
+2021-05-24 20:33:48,215 - mininet - DEBUG - localuser:root being added to access control list
+  0
+2021-05-24 20:33:48,217 - mininet - DEBUG - _popen ['mnexec', '-da', '3262', 'xterm', '-title', '"Node: s1" (root)', '-display', ':0', '-e', 'env TERM=ansi python physical_process_bottle.py'] 3403
+2021-05-24 20:33:48,418 - mininet - DEBUG - *** errRun: ['xhost', '+si:localuser:root'] 
+
+2021-05-24 20:33:48,448 - mininet - DEBUG - localuser:root being added to access control list
+  0
+2021-05-24 20:33:48,468 - mininet - DEBUG - _popen ['mnexec', '-da', '3257', 'xterm', '-title', '"Node: plc3"', '-display', ':0', '-e', 'env TERM=ansi python plc3.py'] 3405
+2021-05-24 20:33:48,673 - mininet - DEBUG - *** errRun: ['xhost', '+si:localuser:root'] 
+
+2021-05-24 20:33:48,722 - mininet - DEBUG - localuser:root being added to access control list
+  0
+2021-05-24 20:33:48,748 - mininet - DEBUG - _popen ['mnexec', '-da', '3255', 'xterm', '-title', '"Node: plc2"', '-display', ':0', '-e', 'env TERM=ansi python plc2.py'] 3410
+2021-05-24 20:33:48,956 - mininet - DEBUG - *** errRun: ['xhost', '+si:localuser:root'] 
+
+2021-05-24 20:33:48,994 - mininet - DEBUG - localuser:root being added to access control list
+  0
+2021-05-24 20:33:49,015 - mininet - DEBUG - _popen ['mnexec', '-da', '3253', 'xterm', '-title', '"Node: plc1"', '-display', ':0', '-e', 'env TERM=ansi python plc1.py'] 3412
+2021-05-24 20:33:49,217 - mininet - DEBUG - *** errRun: ['xhost', '+si:localuser:root'] 
+
+2021-05-24 20:33:49,279 - mininet - DEBUG - localuser:root being added to access control list
+  0
+2021-05-24 20:33:49,296 - mininet - DEBUG - _popen ['mnexec', '-da', '3253', 'xterm', '-title', '"Node: plc1"', '-display', ':0', '-e', 'env TERM=ansi bash'] 3416
+2021-05-24 20:33:49,497 - mininet - DEBUG - *** errRun: ['xhost', '+si:localuser:root'] 
+
+2021-05-24 20:33:49,541 - mininet - DEBUG - localuser:root being added to access control list
+  0
+2021-05-24 20:33:49,573 - mininet - DEBUG - _popen ['mnexec', '-da', '3251', 'xterm', '-title', '"Node: hmi"', '-display', ':0', '-e', 'env TERM=ansi bash'] 3418
+2021-05-24 20:33:49,774 - mininet - DEBUG - *** errRun: ['xhost', '+si:localuser:root'] 
+
+2021-05-24 20:33:49,818 - mininet - DEBUG - localuser:root being added to access control list
+  0
+2021-05-24 20:33:49,853 - mininet - DEBUG - _popen ['mnexec', '-da', '3246', 'xterm', '-title', '"Node: attacker"', '-display', ':0', '-e', 'env TERM=ansi bash'] 3421
+2021-05-24 20:33:49,853 - mininet - INFO - *** Starting CLI:
+
+2021-05-24 20:33:49,880 - mininet - DEBUG - *** errRun: ['stty', 'echo', 'sane', 'intr', '^C'] 
+
+2021-05-24 20:33:49,933 - mininet - DEBUG -   0

