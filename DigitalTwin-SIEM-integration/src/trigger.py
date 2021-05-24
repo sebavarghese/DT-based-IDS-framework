@@ -9,6 +9,6 @@ count=0
 while close_time > time.time():
     os.system('touch trigger.txt')
 else:
-    os.system('sudo rm -rf trigger.txt')
+    os.system('rm -rf trigger.txt')
 
 

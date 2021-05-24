@@ -4,6 +4,6 @@ echo -n "Enter the Hostname or IP Address where your elasticsearch will be deplo
 read ip
 echo "HOST_IP=$ip" > .env
 
-docker-compose up -d
+docker-compose down && docker-compose build --no-cache && docker-compose up
 
 /bin/bash kbndashboard-import.sh localhost ../kibana/dashboard-siem.json

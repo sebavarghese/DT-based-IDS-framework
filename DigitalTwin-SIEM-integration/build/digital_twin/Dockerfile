@@ -1,22 +1,39 @@
 FROM ubuntu:18.04
 # COPY ./src .
 COPY ./start.sh ./start.sh
-RUN apt-get update
-RUN apt-get install -y sudo \
-    && apt-get install -y python2.7 \
-    && apt-get install -y python-pip \
-    && apt-get install -y iputils-ping \
-    && apt-get install -y net-tools \
-    && apt-get install -y git \ 
-    && apt-get install -y screen \
-    && apt-get install -y vim \
-    && git clone git://github.com/mininet/mininet \
-    && /mininet/util/install.sh -a \
-    && pip install minicps \
-    && pip install cpppo==4.1.0 \
-    && apt-get install -y ettercap-common \
-    && apt-get install -y hping3 \
-    && chmod +x ./start.sh
+
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+    curl \
+    iproute2 \
+    iputils-ping \
+    net-tools \
+    python2.7 \
+    python-pip \
+    openvswitch-switch \
+    openvswitch-testcontroller \
+    tcpdump \
+    vim \
+    git \
+    wireshark \
+    x11-xserver-utils \
+    xterm \
+    hping3 \
+    screen \
+    mininet \
+    build-essential python-dev libnetfilter-queue-dev \
+    debhelper bison check cmake flex groff libbsd-dev \
+    libcurl4-openssl-dev libgeoip-dev libgtk-3-dev libltdl-dev libluajit-5.1-dev \
+    libncurses5-dev libnet1-dev libpcap-dev libpcre3-dev libssl-dev \
+ && git clone https://github.com/Ettercap/ettercap.git \
+ && pip install --upgrade setuptools \
+ && pip install minicps \
+ && pip install cpppo==4.1.0 \
+ && pip install NetfilterQueue \
+ && apt-get clean \
+ && rm -rf /var/lib/apt \
+ && chmod +x ./start.sh 
+
+RUN cd ettercap && mkdir build && cd build && cmake .. && make install
 EXPOSE 6633 6653 6640
 
 CMD ["./start.sh"]

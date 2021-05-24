@@ -92,9 +92,12 @@ services:
       - DISPLAY=${DISPLAY}
     privileged: true
     network_mode: "host"
+    tty: true
     volumes:
       - digital-twin-log:/src/logs
       - ../../src:/src
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - /lib/modules:/lib/modules
     depends_on:
         - filebeat
 
