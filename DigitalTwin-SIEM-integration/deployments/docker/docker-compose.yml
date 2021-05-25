@@ -101,6 +101,20 @@ services:
     depends_on:
         - filebeat
 
+        
+  ids:
+    container_name: ids
+    image: continuumio/miniconda3
+    ports:
+      - "8888:8888"
+    command: >
+        /bin/bash -c "/opt/conda/bin/conda install -c anaconda pandas scikit-learn plotly plotly=4.14.3 jupyter -y --quiet && mkdir -p /opt/notebooks
+        && /opt/conda/bin/jupyter notebook --notebook-dir=/opt/notebooks --ip='*' --port=8888 --no-browser --allow-root"
+    volumes:
+      - digital-twin-log:/opt/notebooks
+    depends_on:
+        - filebeat
+
 volumes:
   filebeat-es-data:
   filebeat-data:

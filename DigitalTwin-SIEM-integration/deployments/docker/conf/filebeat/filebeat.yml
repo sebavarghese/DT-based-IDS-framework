@@ -26,24 +26,9 @@ filebeat.inputs:
   json.keys_under_root: true
   json.overwrite_keys: true
 
-# - type: log
-#   paths:
-#     - "/var/log/suricata/eve.json"
-#   fields_under_root: true
-#   fields: { application: suricata }
-#   json.message_key: log
-#   json.keys_under_root: true
-#   json.overwrite_keys: true
-
 - type: log
   paths:
     - "/var/log/digital_twin/*.log"
-  fields_under_root: true
-  fields: { application: digital_twin }
-
-- type: log
-  paths:
-    - "/var/log/digital_twin/*.csv"
   fields_under_root: true
   fields: { application: digital_twin }
 
