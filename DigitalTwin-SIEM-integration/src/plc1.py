@@ -37,7 +37,7 @@ class FPPLC1(PLC):
             csv_writer = csv.DictWriter(writeobj, fieldnames=fieldnames)
             if count == 0:
                 csv_writer.writeheader()
-                count = 1
+                #count = 1
 
             csv_writer.writerow({'timestamp': str(datetime.datetime.now()),'tank_liquidlevel': liquidlevel_tank, 'tank_upperbound': TANK_M['UpperBound'] , 'tank_lowerbound': TANK_M['LowerBound'], 'flowlevel': flowlevel, 'sensor2_thresh': SENSOR2_THRESH,'bottle_liquidlevel': liquidlevel_bottle,'bottle_upperbound': BOTTLE_M['UpperBound'],'bottle_lowerbound': BOTTLE_M['LowerBound'],'motor_status': motor_status})
 
@@ -118,7 +118,7 @@ class FPPLC1(PLC):
             motor_status = int(self.get(ACTUATOR1))
 	    if os.path.isfile('trigger.txt'): 
             	self.store_values(liquidlevel_tank, flowlevel, liquidlevel_bottle, motor_status, count)
-            	count = 1
+                count = 1
             
 	    time.sleep(PLC_PERIOD_SEC)
 

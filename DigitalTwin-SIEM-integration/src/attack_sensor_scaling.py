@@ -5,6 +5,7 @@ import os
 import binascii
 import struct
 import sys
+from datetime import datetime as dt
 from scapy.all import *
 
 print("Remember - bridge must already be started!")
@@ -77,9 +78,11 @@ nfqueue = NetfilterQueue()
 nfqueue.bind(1, modify)
 try:
     print "[*] waiting for data"
+    print("START TIME:", str(dt.now()))
     nfqueue.run()
 except KeyboardInterrupt:
     print("Flushing iptables.")
+    print("END TIME:", str(dt.now()))
     # This flushes everything, you might wanna be careful
     os.system('iptables -F')
     os.system('iptables -X')
