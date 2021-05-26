@@ -5,7 +5,7 @@ with open('logs/data.csv','r') as csvinput:
         writer = csv.writer(csvoutput)
         for row in csv.reader(csvinput):
             if row[0] == "motor_status":
-                writer.writerow(row+["traffic"])
+                writer.writerow(row+["traffic_type"])
             elif row[2] == '' or row[4] == '':
                 writer.writerow(row+['anomaly'])
             else:
