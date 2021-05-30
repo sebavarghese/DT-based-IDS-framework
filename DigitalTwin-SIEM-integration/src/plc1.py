@@ -33,13 +33,13 @@ class FPPLC1(PLC):
 
     def store_values(self, liquidlevel_tank, est_flowlevel, flowlevel, est_ll_bottle, liquidlevel_bottle, motor_status, count):
         with open('logs/data.csv', 'a+') as writeobj:
-            fieldnames=['timestamp','tank_liquidlevel', 'tank_upperbound','tank_lowerbound', 'est_flowlevel', 'flowlevel', 'sensor2_thresh','est_bottle_liquidlevel', 'bottle_liquidlevel','bottle_upperbound','bottle_lowerbound','motor_status']
+            fieldnames=['timestamp','tank_liquidlevel', 'tank_upperbound','tank_lowerbound', 'flowlevel', 'sensor2_thresh', 'bottle_liquidlevel','bottle_upperbound','bottle_lowerbound','motor_status']
             csv_writer = csv.DictWriter(writeobj, fieldnames=fieldnames)
             if count == 0:
                 csv_writer.writeheader()
                 #count = 1
 
-            csv_writer.writerow({'timestamp': str(datetime.datetime.now()),'tank_liquidlevel': liquidlevel_tank, 'tank_upperbound': TANK_M['UpperBound'] , 'tank_lowerbound': TANK_M['LowerBound'], 'est_flowlevel': est_flowlevel, 'flowlevel': flowlevel, 'sensor2_thresh': SENSOR2_THRESH,'est_bottle_liquidlevel': est_ll_bottle, 'bottle_liquidlevel': liquidlevel_bottle,'bottle_upperbound': BOTTLE_M['UpperBound'],'bottle_lowerbound': BOTTLE_M['LowerBound'],'motor_status': motor_status})
+            csv_writer.writerow({'timestamp': str(datetime.datetime.now()),'tank_liquidlevel': liquidlevel_tank, 'tank_upperbound': TANK_M['UpperBound'] , 'tank_lowerbound': TANK_M['LowerBound'], 'flowlevel': flowlevel, 'sensor2_thresh': SENSOR2_THRESH,'bottle_liquidlevel': liquidlevel_bottle,'bottle_upperbound': BOTTLE_M['UpperBound'],'bottle_lowerbound': BOTTLE_M['LowerBound'],'motor_status': motor_status})
 
     def main_loop(self):
         """plc1 main loop.
@@ -71,7 +71,7 @@ class FPPLC1(PLC):
 
             # read from PLC2
             try:
-                estimated_flowlevel = float(self.get(SENSOR2_2))
+                #estimated_flowlevel = float(self.get(SENSOR2_2))
                 flowlevel = float(self.receive(SENSOR2_2, PLC2_ADDR))
                 print "DEBUG PLC1 - receive flowlevel (SENSOR 2): %f" % flowlevel
                 self.send(SENSOR2_1, flowlevel, PLC1_ADDR)
@@ -93,7 +93,7 @@ class FPPLC1(PLC):
 
             # read from PLC3
             try:
-                estimated_liquidlevel_bottle = float(self.get(SENSOR3_3))
+                #estimated_liquidlevel_bottle = float(self.get(SENSOR3_3))
                 liquidlevel_bottle = float(self.receive(SENSOR3_3, PLC3_ADDR))
                 print "DEBUG PLC1 - receive liquid level of bottle (SENSOR 3): %f" % liquidlevel_bottle
                 self.send(SENSOR3_1, liquidlevel_bottle, PLC1_ADDR)
@@ -119,7 +119,7 @@ class FPPLC1(PLC):
             
             motor_status = int(self.get(ACTUATOR1))
 	    if os.path.isfile('trigger.txt'): 
-            	self.store_values(liquidlevel_tank, estimated_flowlevel, flowlevel, estimated_liquidlevel_bottle, liquidlevel_bottle, motor_status, count)
+            	self.store_values(liquidlevel_tank, flowlevel, liquidlevel_bottle, motor_status, count)
                 count = 1
             
 	    time.sleep(PLC_PERIOD_SEC)
