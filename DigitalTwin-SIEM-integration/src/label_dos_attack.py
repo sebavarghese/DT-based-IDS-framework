@@ -6,7 +6,7 @@ with open('logs/data.csv','r') as csvinput:
         for row in csv.reader(csvinput):
             if row[0] == "timestamp":
                 writer.writerow(row+["traffic_type"])
-            elif row[5] == '' or row[8] == '':
+            elif row[4] == '' or row[6] == '':
                 writer.writerow(row+['anomaly'])
             else:
                 writer.writerow(row+['normal'])

@@ -31,7 +31,7 @@ class FPPLC1(PLC):
 
         time.sleep(sleep)
 
-    def store_values(self, liquidlevel_tank, est_flowlevel, flowlevel, est_ll_bottle, liquidlevel_bottle, motor_status, count):
+    def store_values(self, liquidlevel_tank, flowlevel, liquidlevel_bottle, motor_status, count):
         with open('logs/data.csv', 'a+') as writeobj:
             fieldnames=['timestamp','tank_liquidlevel', 'tank_upperbound','tank_lowerbound', 'flowlevel', 'sensor2_thresh', 'bottle_liquidlevel','bottle_upperbound','bottle_lowerbound','motor_status']
             csv_writer = csv.DictWriter(writeobj, fieldnames=fieldnames)
@@ -89,7 +89,7 @@ class FPPLC1(PLC):
                             flowlevel, SENSOR2_THRESH))
             except:
                 logging.warning("Flow level (SENSOR 2) is not received. Program is unable to proceed properly")
-                flowlevel = ''
+                flowlevel = 999
 
             # read from PLC3
             try:
@@ -115,7 +115,7 @@ class FPPLC1(PLC):
                     self.send(ACTUATOR1, 1, PLC1_ADDR)
             except:
                 logging.warning("Liquid level (SENSOR 3) is not received. Program is unable to proceed properly")
-                liquidlevel_bottle = ''
+                liquidlevel_bottle = 999
             
             motor_status = int(self.get(ACTUATOR1))
 	    if os.path.isfile('trigger.txt'): 
