@@ -53,7 +53,7 @@ class FPCPS(MiniCPS):
         time.sleep(0.2)
         net.terms += makeTerm(plc1, display=None)
         time.sleep(0.2)
-        net.terms += makeTerm(hmi, display=None)
+        net.terms += makeTerm(hmi, display=None, cmd='python trigger.py 30')
         time.sleep(0.2)
         net.terms += makeTerm(attacker, display=None)
         CLI(self.net)
