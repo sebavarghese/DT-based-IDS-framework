@@ -59,4 +59,4 @@ with open('logs/data.csv','r') as csvinput:
                 
                 #Final case
                 else:
-                    writer.writerow(row+['normal']+['nil'])
+                    writer.writerow(row+['normal'])

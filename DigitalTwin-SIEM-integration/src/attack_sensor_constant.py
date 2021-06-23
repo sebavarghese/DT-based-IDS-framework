@@ -24,7 +24,7 @@ def modify(packet):
             if pkt.haslayer(Raw) and len(pkt.getlayer(Raw).load) == 50:
                 print("Seba")
                 mydata = binascii.hexlify(bytes(pkt[Raw].load)).decode()
-                newdata = mydata[:-8]+'7f9b223f'
+                newdata = mydata[:-8]+'a4a1233f'
                 print(newdata)
                 pkt[Raw].load = newdata.decode('hex') 
                 del pkt[IP].chksum
@@ -61,7 +61,7 @@ def modify(packet):
                 print('HEY3')
                 if pkt.haslayer(Raw) and len(pkt.getlayer(Raw).load) == 50:
                     mydata = binascii.hexlify(bytes(pkt[Raw].load)).decode()
-                    newdata = mydata[:-8]+'7f9b223f'
+                    newdata = mydata[:-8]+'a4a1233f'
                     print(newdata)
                     pkt[Raw].load = newdata.decode('hex')
                     del pkt[IP].chksum
