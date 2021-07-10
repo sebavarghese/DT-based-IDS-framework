@@ -22,7 +22,8 @@ d5: Duration: 15 min
     (i)   only PLC3 
     (ii)  only PLC2
     (iii) both PLC3&PLC2
-d6: change readings to scaled values (-ve scaling): 
+d6: Duration:15 min
+    change readings to scaled values (-ve scaling): 
     (i)   only PLC3 
     (ii)  only PLC2
     (iii) both PLC3&PLC2
