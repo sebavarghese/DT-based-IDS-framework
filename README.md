@@ -10,16 +10,3 @@ Changes made as part of the project are related to:
 3) **Plots:** This folder has plots showing effect of modelled attacks on different process measurements.
 4) **siem:** standalone digital twin as a docker container
 5) **Makefile**: Run 'make clean' to clean up mininet configurations and log files.
-
-**_#To run the whole framework in docker, follow the steps below:_**
-1) sudo xhost +si:localuser:root  
-  //Comments: add root user to the local access control list of xhost on "Docker host", not inside container.
-2) From 'DigitalTwin-SIEM-integration/deployments/docker', run the init script using 'sudo sh init.sh'. Give an IP on which elastic search needs to be deployed.
-3) Once the project is ready, access kibana and ids in browser.
-  Kibana port 5601 , ids (url comes on console) port 8888
-  
-  
-_**#How to run different attack scenarios?**_
-  
-  
-**_#How to use IDS?_**
