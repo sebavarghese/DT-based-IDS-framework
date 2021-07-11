@@ -2,8 +2,7 @@ This is the code repository for my master thesis project titled '**Digital Twin 
 
 Folders in this repository (README files are further provided separately for different folders)
 1) **DigitalTwin-SIEM-integration**: Cloned from https://github.com/FrauThes/DigitalTwin-SIEM-integration.
-
- _ **Changes made:**_
+Changes made as part of the project are related to:
   (a) Modelling of different process-aware attacks.
   (b) Collecting process measurements & labelling of generated dataset
   (c) Added changes to extend the docker compose framework with a new docker container that will be running ML-based IDS
