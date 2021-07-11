@@ -98,5 +98,7 @@ IP to nodes mapping: PLC1 <--> 10.0.0.1, PLC2 <--> 10.0.0.2, PLC3 <--> 10.0.0.3,
 
 **Running ML-based IDS**
 
+Run ML_based IDS by running the Jupyter notebook ML_IDS.ipynb launched using ids url. Results of IDS can be seen in 'IDS' dashboard in Kibana.
+
 ## Reference
 [ARES'20](https://doi.org/10.1145/3407023.3407039)
