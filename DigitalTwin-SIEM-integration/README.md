@@ -37,6 +37,9 @@ python trigger.py <x>
 ```
 Here x corresponds to the minutes for which data (process measuremnets) needs to be collected. For examples, if data needs to be collected for 2 hours, enter x as 120.
 
+Collected dataset is stored as 'data.csv' in logs folder.
+
+Label the dataset using 'label.py' script.
 **Executing attacks**
 
 
