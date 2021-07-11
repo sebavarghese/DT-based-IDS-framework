@@ -49,9 +49,7 @@ IP to nodes mapping: PLC1 <--> 10.0.0.1, PLC2 <--> 10.0.0.2, PLC3 <--> 10.0.0.3,
 
 **Attack scenario 1** (False data injection): Run the following script to launch this attack for x minutes.
 
-    ```
     python attack_fdi.py <x>
-    ```
 
 **Attack scenario 2, 3, 4** (MitM/DoS): Run the following commands for attacks 2, 3, 4 respectively.
 
@@ -84,7 +82,6 @@ IP to nodes mapping: PLC1 <--> 10.0.0.1, PLC2 <--> 10.0.0.2, PLC3 <--> 10.0.0.3,
     python attack_sensor_random_withinlimits.py PLC2
     python attack_sensor_random_withinlimits.py PLC3
     python attack_sensor_random_withinlimits.py BOTH
-    ```
 
 **Attack scenario 18,19,20 (MitM/Scaling positive) and Attack scenario 21,22,23 (MitM/Scaling negative)
 
