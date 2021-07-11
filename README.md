@@ -10,11 +10,6 @@ Folders in this repository (README files are further provided separately for dif
 3) **Plots:** This folder has plots showing effect of modelled attacks on different process measurements.
 4) **siem:** standalone digital twin as a docker container
 
-**_#Standalone working digital twin as a docker container (Digital twin simulation from https://github.com/FrauThes/DigitalTwin-SIEM-integration ) ------> 'siem' folder_**
-
-1) Build docker image: docker build .
-2) To run the built image : sudo docker run -it --rm --privileged -e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix <imagename>
-
 **_#To run the whole framework in docker, follow the steps below:_**
 1) sudo xhost +si:localuser:root  
   //Comments: add root user to the local access control list of xhost on "Docker host", not inside container.
