@@ -1,5 +1,7 @@
 # DigitalTwin-SIEM-integration
 
+**Installation**
+
 Installation steps for the whole implementation with Docker Compose is as follows: 
 (Please refer https://github.com/FrauThes/DigitalTwin-SIEM-integration/blob/master/README.md for the implementation without the IDS docker container)
 
@@ -26,7 +28,20 @@ Installation steps for the whole implementation with Docker Compose is as follow
     
 The Project is up and running. If you want to start it a second time you simply have to navigate to deployments/docker and run `docker-compose up`.
 
+**Data collection**
 
+Once the docker compose is up, 8 xterm consoles will pop up on the terminal (2 for s1, 2 for plc1, 1 for plc2, 1 for plc3, 1 for hmi and 1 for attacker node)
+To trigger data collection, run the following command on hmi terminal
+```
+python trigger.py <x>
+```
+Here x corresponds to the minutes for which data (process measuremnets) needs to be collected. For examples, if data needs to be collected for 2 hours, enter x as 120.
+
+**Executing attacks**
+
+
+
+**Running ML-based IDS**
 
 ## Reference
 [ARES'20](https://doi.org/10.1145/3407023.3407039)
