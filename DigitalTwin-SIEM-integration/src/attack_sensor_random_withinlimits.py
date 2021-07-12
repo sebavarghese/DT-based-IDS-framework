@@ -1,4 +1,6 @@
 #! /usr/bin/env python2.7
+##### Script to launch MitM/Data tampering attack #####
+##### Takes one command line argument: PLC2/PLC3/BOTH #####
 
 from netfilterqueue import NetfilterQueue
 import os
