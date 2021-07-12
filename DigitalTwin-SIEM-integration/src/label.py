@@ -1,3 +1,4 @@
+##### Script to label generated dataset #####
 import csv
 import math
 SENSOR2_THRESH = 3.00
