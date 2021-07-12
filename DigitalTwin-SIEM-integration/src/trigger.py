@@ -1,3 +1,4 @@
+##### Script to trigger data collection in PLC1 node #####
 import os
 import sys
 import time
