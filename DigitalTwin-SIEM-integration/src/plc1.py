@@ -118,7 +118,8 @@ class FPPLC1(PLC):
                 liquidlevel_bottle = 999
             
             motor_status = int(self.get(ACTUATOR1))
-	    if os.path.isfile('trigger.txt'): 
+	    if os.path.isfile('trigger.txt'):
+		# Collect relevant process measurements
             	self.store_values(liquidlevel_tank, flowlevel, liquidlevel_bottle, motor_status, count)
                 count = 1
             
