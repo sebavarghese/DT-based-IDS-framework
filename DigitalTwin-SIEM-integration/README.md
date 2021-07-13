@@ -90,12 +90,12 @@ IP to nodes mapping: PLC1 <--> 10.0.0.1, PLC2 <--> 10.0.0.2, PLC3 <--> 10.0.0.3,
 
 **Attack scenario 18,19,20 (MitM/Scaling positive) and Attack scenario 21,22,23 (MitM/Scaling negative)
 
-    python attack_randomp.py PLC2
-    python attack_randomp.py PLC3
-    python attack_randomp.py BOTH
-    python attack_randomn.py PLC2
-    python attack_randomn.py PLC3
-    python attack_randomn.py BOTH
+    python attack_sensor_randomp.py PLC2
+    python attack_sensor_randomp.py PLC3
+    python attack_sensor_randomp.py BOTH
+    python attack_sensor_randomn.py PLC2
+    python attack_sensor_randomn.py PLC3
+    python attack_sensor_randomn.py BOTH
 
 **Running ML-based IDS**
 
