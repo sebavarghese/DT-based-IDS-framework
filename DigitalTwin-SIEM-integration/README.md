@@ -40,7 +40,7 @@ Here x corresponds to the minutes for which data (process measuremnets) needs to
 Collected dataset is stored as 'data.csv' in logs folder.
 
 Automated labelling of the generated dataset done in two steps: 1) Run label.py script to label dataset based on threshold conditions (For false data injection and DoS)
-2) Run label1.py after step 1 by passing 3 arguments (start_time, end_time and attack type). Results stores ad 'labelled.csv' in logs folder
+2) Run label1.py after step 1 by passing 3 arguments (start_time, end_time and attack type). Results stored as 'labelled.csv' in logs folder.
 
 **Executing attacks**
 
