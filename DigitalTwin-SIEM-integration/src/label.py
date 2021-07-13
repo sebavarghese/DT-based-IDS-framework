@@ -1,4 +1,6 @@
-##### Script to label generated dataset #####
+##### Script to label generated dataset at level1; uses threshold condition to detect false data injection attacks and DoS attacks#####
+##### Results are labelled dataset stored as 'data1.csv' in logs folder ######
+##### Level 2 labelling takes this data1.csv as input and label the remaining attacks wrt attack durations #####
 import csv
 import math
 SENSOR2_THRESH = 3.00
@@ -7,7 +9,7 @@ tank_ub = 5.81
 bottle_ub = 0.9
 
 with open('logs/data.csv','r') as csvinput:
-    with open('logs/labelled.csv', 'w') as csvoutput:
+    with open('logs/data1.csv', 'w') as csvoutput:
         writer = csv.writer(csvoutput)
         for row in csv.reader(csvinput):
             if row[0] == "timestamp":
@@ -28,36 +30,6 @@ with open('logs/data.csv','r') as csvinput:
                 ###########################################################
                 elif float(row[2]) == 999 or float(row[3]) == 999:
                     writer.writerow(row+['DoS'])
-                
-
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
                 #Final case
                 else:
                     writer.writerow(row+['normal'])
