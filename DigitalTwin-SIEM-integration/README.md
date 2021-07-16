@@ -28,6 +28,8 @@ Installation steps for the whole implementation with Docker Compose is as follow
     
 The Project is up and running. If you want to start it a second time you simply have to navigate to deployments/docker and run `docker-compose up`.
 
+**NOTE**: All the required packages, softwares and libraries are included with Docker. No need of installing these separately.
+
 **Data collection**
 
 Once the docker compose is up, 8 xterm consoles will pop up on the terminal (2 for s1, 2 for plc1, 1 for plc2, 1 for plc3, 1 for hmi and 1 for attacker node)
