@@ -46,4 +46,4 @@ d6: Duration:15 min
     (ii)  only PLC2
     (iii) both PLC3&PLC2
 
-**Note:** Each folder contains 4 plots (tl.png for tank_liquidlevel, bl.png for bottle_liquidlevel, fl.png for flowlevel, ms.png for motor_status.
+**Note:** Each folder contains 4 plots (tl.png for tank_liquidlevel, bl.png for bottle_liquidlevel, fl.png for flowlevel, ms.png for motor_status).
