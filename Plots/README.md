@@ -5,12 +5,12 @@ This folder contains two Jupyter notebooks, named Dataset and Plots
 Use the csv files corresponding to the below listed attack scenarios to generate plots.
 d1: Normal operation for 5 min
 
-d2: false data injection attack for 5 min, toggle motor status value
+d2: Command Injection Attack for 5 min, toggle motor status value
 
-d3: TCP SYN flood PLC1/* + MitM/DoS ((i)PLC1/PLC3  (ii)PLC1/PLC2 (iii)PLC1/*)
+d3: Network DoS (TCP SYN flood PLC1/* + MitM/DoS ((i)PLC1/PLC3  (ii)PLC1/PLC2 (iii)PLC1/*))
     Duration: 10 min
 
-d4: Data Tampering, Duration: 15 min
+d4: Naive Measurement Injection Attack, Duration: 15 min
 
     change readings to constant value: 
     (i)   only PLC3 
@@ -22,7 +22,8 @@ d4: Data Tampering, Duration: 15 min
     (ii)  only PLC2
     (iii) both PLC3&PLC2   
 
-d5: Positive Scaling, Duration: 15 min
+d5: Calculated Measurement Injection Attack 
+Positive Scaling, Duration: 15 min
 
     change readings to scaled values (+ve scaling): 
     (i)   only PLC3 
@@ -34,7 +35,8 @@ d5: Positive Scaling, Duration: 15 min
     (ii)  only PLC2
     (iii) both PLC3&PLC2
 
-d6: Negative Scaling, Duration:15 min
+d6: Calculated Measurement Injection Attack 
+Negative Scaling, Duration:15 min
 
     change readings to scaled values (-ve scaling): 
     (i)   only PLC3 
