@@ -90,7 +90,7 @@ IP to nodes mapping: PLC1 <--> 10.0.0.1, PLC2 <--> 10.0.0.2, PLC3 <--> 10.0.0.3,
     python attack_sensor_random_withinlimits.py PLC3
     python attack_sensor_random_withinlimits.py BOTH
 
-**Attack scenario 18,19,20 (Calculated Measurement Injetcion positive) and Attack scenario 21,22,23 (Calculated Measurement Injection negative)
+**Attack scenario 18,19,20 (Calculated Measurement Injetcion positive scaling) and Attack scenario 21,22,23 (Calculated Measurement Injection negative scaling)
 
     python attack_sensor_randomp.py PLC2
     python attack_sensor_randomp.py PLC3
