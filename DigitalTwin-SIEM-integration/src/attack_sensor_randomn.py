@@ -1,5 +1,5 @@
 #! /usr/bin/env python2.7
-##### Script to launch calculated measurement injection attack to scale down the actual values by a random value from (0,1) #####
+##### Script to launch calculated measurement modification attack to scale down the actual values by a random value from (0,1] #####
 ##### Takes one command line argument: PLC2/PLC3/BOTH #####
 from netfilterqueue import NetfilterQueue
 import os
