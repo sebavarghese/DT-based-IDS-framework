@@ -4,8 +4,8 @@ Folders in this repository (README files are further provided separately for dif
 1) **DigitalTwin-SIEM-integration**: Cloned from https://github.com/FrauThes/DigitalTwin-SIEM-integration.
 Changes made as part of the project are related to:
   (a) Modelling of different process-aware attacks.
-  (b) Collecting process measurements & labelling of generated dataset
-  (c) Added changes to extend the docker compose framework with a new docker container that will be running ML-based IDS
+  (b) Collecting process measurements & labelling of generated dataset.
+  (c) Added changes to extend the docker compose framework with a new docker container running ML-based IDS.
 2) **ML_IDS**: This folder contains Jupyter notebooks for different ML algorithms (Supervised, Stacking) and dataset used to train the models.
-3) **siem:** standalone digital twin as a docker container
-4) **Makefile**: Run 'make clean' to clean up mininet configurations and log files.
+3) **siem:** : Standalone digital twin as a docker container
+4) **Makefile**: Run 'make clean' to clean up mininet configurations and system log files.
