@@ -1,4 +1,4 @@
-##### Script to launch false data injection attack from attacker node disguised as HMI node #####
+##### Script to launch command injection attack from attacker node disguised as HMI node #####
 
 from minicps.devices import HMI
 from utils import STATE, PLC1_ADDR
