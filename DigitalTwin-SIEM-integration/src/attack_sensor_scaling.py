@@ -1,5 +1,5 @@
 #! /usr/bin/env python2.7
-##### Script to launch calculated measurement injection attack to scale up or down the actual values by a fixed scaling factor #####
+##### Script to launch calculated measurement modification attack to scale up or down the actual values by a fixed scaling factor #####
 ##### Takes two command line argument: 1) PLC2/PLC3/BOTH 2) '+' or '-' for positive and negative scaling respectively #####
 from netfilterqueue import NetfilterQueue
 import os
