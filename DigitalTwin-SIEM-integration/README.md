@@ -75,7 +75,7 @@ IP to nodes mapping: PLC1 <--> 10.0.0.1, PLC2 <--> 10.0.0.2, PLC3 <--> 10.0.0.3,
     python attack_sensor_constant.py PLC3
     python attack_sensor_constant.py BOTH
 
-**Attack scenario 9,10,11 (Calculated Measurement Modification +ve scaling) and Attack scenario 12,13,14 (Calculated Measurement Injection negative scaling)
+**Attack scenario 9,10,11 (Calculated Measurement Modification +ve scaling) and Attack scenario 12,13,14 (Calculated Measurement Modification negative scaling)
 
     python attack_sensor_scaling.py PLC2 +
     python attack_sensor_scaling.py PLC3 +
