@@ -2,7 +2,7 @@
 
 **Installation**
 
-Installation steps for the whole implementation with Docker Compose is as follows: 
+Installation steps for the whole implementation with Docker Compose are as follows: 
 (Please refer https://github.com/FrauThes/DigitalTwin-SIEM-integration/blob/master/README.md for the implementation without the IDS docker container)
 
 1. After installing Docker Compose, clone the repository.
@@ -18,13 +18,13 @@ Installation steps for the whole implementation with Docker Compose is as follow
     ```
     Enter the Hostname or IP Address where your elasticsearch will be deployed:10.0.2.15
     ```
-4. The script is trying to import the Dsiem dashboard to Kibana. This may take a few minutes. Until Kibana is up and running, error messages are shown. This is normal. Example error message:
+    At this step, the script is trying to import the Dsiem dashboard to Kibana. This may take a few minutes. Until Kibana is up and running, error messages are shown. This is       normal. Example error message:
     ```
     curl: (22) The requested URL returned error: 503 Service Unavailable
     cannot connect to localhost:5601, will retry in 5 sec ..
     ```
-5.  Once the project is ready, access kibana and ids in browser.
-    Kibana port 5601 , ids (url comes on console) port 8888
+5.  Once the project is ready, access kibana and IDS in browser.
+    Kibana port 5601 , IDS (url comes on console) port 8888
     
 The Project is up and running. If you want to start it a second time you simply have to navigate to deployments/docker and run `docker-compose up`.
 
@@ -32,16 +32,18 @@ The Project is up and running. If you want to start it a second time you simply 
 
 **Data collection**
 
-Once the docker compose is up, 8 xterm consoles will pop up on the terminal (2 for s1, 2 for plc1, 1 for plc2, 1 for plc3, 1 for hmi and 1 for attacker node)
+Once the docker compose is up, 8 xterm consoles will pop up on the terminal (2 for s1, 2 for plc1, 1 for plc2, 1 for plc3, 1 for hmi and 1 for attacker node).
 To trigger data collection, run the following command on hmi terminal
 ```
 python trigger.py <x>
 ```
 Here x corresponds to the minutes for which data (process measuremnets) needs to be collected. For examples, if data needs to be collected for 2 hours, enter x as 120.
 
-Collected dataset is stored as 'data.csv' in logs folder.
+The collected dataset is stored as 'data.csv' in logs folder.
 
-Automated labelling of the generated dataset done in two steps: 1) Run label.py script to label dataset based on threshold conditions (For false data injection and DoS)
+Automated labelling of the generated dataset is done in two steps: 
+
+1) Run label.py script to label dataset based on threshold conditions (For false data injection and DoS)
 2) Run label1.py after step 1 by passing 3 arguments (start_time, end_time and attack type). Results stored as 'labelled.csv' in logs folder.
 
 **Executing attacks**
@@ -101,7 +103,7 @@ IP to nodes mapping: PLC1 <--> 10.0.0.1, PLC2 <--> 10.0.0.2, PLC3 <--> 10.0.0.3,
 
 **Running ML-based IDS**
 
-Run ML_based IDS by running the Jupyter notebook ML_IDS.ipynb launched using ids url. Results of IDS can be seen in 'IDS' dashboard in Kibana.
+Run ML_based IDS by running the Jupyter notebook ML_IDS.ipynb launched using IDS url. Results of IDS can be seen in 'IDS' dashboard in Kibana.
 
 ## Reference
 [ARES'20](https://doi.org/10.1145/3407023.3407039)
