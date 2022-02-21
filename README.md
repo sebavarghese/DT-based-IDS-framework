@@ -4,7 +4,7 @@ Folders in this repository (README files are further provided separately for dif
 
 1) **DigitalTwin-SIEM-integration**: Cloned from https://github.com/FrauThes/DigitalTwin-SIEM-integration.
 
-Changes made as part of the project are as follows:
+   Changes made as part of the project are as follows:
 
     * Extending the docker-compose framework with a new docker container running ML-based IDS.
     * Modeling different process-aware attacks.
