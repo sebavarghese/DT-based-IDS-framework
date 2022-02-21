@@ -1,4 +1,4 @@
-This is the code repository for my master thesis project titled '**Digital Twin based Intrusion Detection for Industrial Control Systems**'. The main contribution of this work is a security framework for ICS that uses a digital twin of an ICS for security monitoring and has an ML-based IDS for intrusion detection. The digital twin solution used in this work is the framework proposed in 'https://dl.acm.org/doi/10.1145/3407023.3407039' and cloned from the authors' github repo: https://github.com/FrauThes/DigitalTwin-SIEM-integration. 
+This is the code repository for the project titled '**Digital Twin based Intrusion Detection for Industrial Control Systems**'. The main contribution of this work is a security framework for ICS that uses a digital twin of an ICS for security monitoring and has an ML-based IDS for intrusion detection. The digital twin solution used in this work is the framework proposed in 'https://dl.acm.org/doi/10.1145/3407023.3407039' and cloned from the authors' github repo: https://github.com/FrauThes/DigitalTwin-SIEM-integration. 
 
 Folders in this repository (README files are further provided separately for different folders) are as follows:
 
