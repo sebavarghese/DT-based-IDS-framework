@@ -2,10 +2,15 @@ This is the code repository for my master thesis project titled '**Digital Twin 
 
 Folders in this repository (README files are further provided separately for different folders)
 1) **DigitalTwin-SIEM-integration**: Cloned from https://github.com/FrauThes/DigitalTwin-SIEM-integration.
-Changes made as part of the project are related to:
-  (a) Modelling of different process-aware attacks.
-  (b) Collecting process measurements & labelling of generated dataset.
-  (c) Added changes to extend the docker compose framework with a new docker container running ML-based IDS.
+
+Changes made as part of the project are as follows:
+
+    * Extending the docker-compose framework with a new docker container running ML-based IDS.
+    * Modeling different process-aware attacks.
+    * Collecting process measurements & labeling of the generated dataset. 
+    
 2) **ML_IDS**: This folder contains Jupyter notebooks for different ML algorithms (Supervised, Stacking) and dataset used to train the models.
-3) **siem:** : Standalone digital twin as a docker container
+
+3) **siem:** : Standalone digital twin as a docker container.
+
 4) **Makefile**: Run 'make clean' to clean up mininet configurations and system log files.
