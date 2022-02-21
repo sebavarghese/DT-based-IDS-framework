@@ -72,18 +72,35 @@ IP to nodes mapping: PLC1 <--> 10.0.0.1, PLC2 <--> 10.0.0.2, PLC3 <--> 10.0.0.3,
 
     hping3 -S -a 10.0.0.4 --flood -V -p 44818 10.0.0.1
 
-**Note**: Attacks 6 till 23 are done using MitM attacks. Attacker node is placed b/w two nodes and IP forwarding is enabled using the following commands.
+**Note**: Attack scenarios 6 till 23 are done using MitM attacks. Attacker node is placed b/w two nodes and IP forwarding is enabled using the following commands.
 
     ettercap -T -i attacker-eth0 -M ARP /10.0.0.1// &
     echo 1 > /proc/sys/net/ipv4/ip_forward
 
-**Attack scenario 6,7,8** (Naive Measurement Modification): Run the following commands for attacks 6, 7, 8 respectively.
+**Attack scenarios 6,7,8** (Naive Measurement Modification): Run the following commands for attack scenarios 6, 7, 8, respectively. These attack scenarios modify the measurements to a constant value.
 
     python attack_sensor_constant.py PLC2
     python attack_sensor_constant.py PLC3
     python attack_sensor_constant.py BOTH
 
-**Attack scenario 9,10,11 (Calculated Measurement Modification +ve scaling) and Attack scenario 12,13,14 (Calculated Measurement Modification negative scaling)
+
+**Attack scenario 9,10,11 (Naive Measurement Modification): Run the following commands for attack scenarios 9, 10, 11, respectively. These attack scenarios modify the measurements to a random value within the predefined limits of the process measurements.
+
+    python attack_sensor_random_withinlimits.py PLC2
+    python attack_sensor_random_withinlimits.py PLC3
+    python attack_sensor_random_withinlimits.py BOTH
+    
+**Attack scenarios 12,13,14 (Calculated Measurement Modification with +ve scaling) and Attack scenarios 15,16,17 (Calculated Measurement Modification with negative scaling). Here, the scaloing factor used is a uniform random value in the range (0,1].
+
+    python attack_sensor_randomp.py PLC2
+    python attack_sensor_randomp.py PLC3
+    python attack_sensor_randomp.py BOTH
+    python attack_sensor_randomn.py PLC2
+    python attack_sensor_randomn.py PLC3
+    python attack_sensor_randomn.py BOTH
+
+
+**Attack scenarios 18,19,20 (Calculated Measurement Modification with positive scaling) and Attack scenarios 21,22,23 (Calculated Measurement Modification with negative scaling). Here, the scaling factor used is a fixed value.
 
     python attack_sensor_scaling.py PLC2 +
     python attack_sensor_scaling.py PLC3 +
@@ -92,20 +109,6 @@ IP to nodes mapping: PLC1 <--> 10.0.0.1, PLC2 <--> 10.0.0.2, PLC3 <--> 10.0.0.3,
     python attack_sensor_scaling.py PLC3 -
     python attack_sensor_scaling.py BOTH -
 
-**Attack scenario 15,16,17 (Naive Measurement Modification)
-
-    python attack_sensor_random_withinlimits.py PLC2
-    python attack_sensor_random_withinlimits.py PLC3
-    python attack_sensor_random_withinlimits.py BOTH
-
-**Attack scenario 18,19,20 (Calculated Measurement Modification positive scaling) and Attack scenario 21,22,23 (Calculated Measurement Modification negative scaling)
-
-    python attack_sensor_randomp.py PLC2
-    python attack_sensor_randomp.py PLC3
-    python attack_sensor_randomp.py BOTH
-    python attack_sensor_randomn.py PLC2
-    python attack_sensor_randomn.py PLC3
-    python attack_sensor_randomn.py BOTH
 
 **Running ML-based IDS**
 
