@@ -21,7 +21,7 @@ with open('logs/data.csv','r') as csvinput:
                 ### Anomaly when motor valve is open if bottle_ll >= bottle_ub or if flowlevel >= sensor2_threshold or if tank_ll <= tank_ll
                 ############################################################################################################################
                 if int(row[4]) == 1 and (float(row[1]) <= tank_lb or (float(row[2]) >= SENSOR2_THRESH and float(row[2]) != 999) or (float(row[3]) >= bottle_ub and float(row[3]) != 999)):
-                    writer.writerow(row+['False data injection'])
+                    writer.writerow(row+['Command Injection'])
                 elif int(row[4]) == 0 and float(row[3]) < bottle_ub and float(row[1]) > tank_lb:
                     writer.writerow(row+['Command Injection'])
                 ###########################################################
