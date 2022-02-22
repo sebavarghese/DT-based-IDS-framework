@@ -23,13 +23,13 @@ with open('logs/data.csv','r') as csvinput:
                 if int(row[4]) == 1 and (float(row[1]) <= tank_lb or (float(row[2]) >= SENSOR2_THRESH and float(row[2]) != 999) or (float(row[3]) >= bottle_ub and float(row[3]) != 999)):
                     writer.writerow(row+['False data injection'])
                 elif int(row[4]) == 0 and float(row[3]) < bottle_ub and float(row[1]) > tank_lb:
-                    writer.writerow(row+['False data injection'])
+                    writer.writerow(row+['Command Injection'])
                 ###########################################################
                 ### For MitM/DoS attacks as well as TCP SYN flood attacks
                 ### Anomaly if flowlevel or bottle_ll is marked as 999
                 ###########################################################
                 elif float(row[2]) == 999 or float(row[3]) == 999:
-                    writer.writerow(row+['DoS'])
+                    writer.writerow(row+['Network DoS'])
                 #Final case
                 else:
-                    writer.writerow(row+['normal'])
+                    writer.writerow(row+['Normal'])
