@@ -15,8 +15,8 @@ with open('logs/data.csv','r') as csvinput:
             if row[0] == "timestamp":
                 writer.writerow(row+["class"])
             else:
-                # Handle all anomalous case in here; and mark anything that is outside these cases as normal.                                                                                                               ############################################################################################################################
-                ### For false data injection attacks
+                # Handle all anomalous case in here; and mark anything that is outside these cases as Normal.                                                                                                               ############################################################################################################################
+                ### For command injection attacks
                 ### Anomaly when motor valve closed when bottle_ll < bottle_ub and when tank_ll > tank_lb
                 ### Anomaly when motor valve is open if bottle_ll >= bottle_ub or if flowlevel >= sensor2_threshold or if tank_ll <= tank_ll
                 ############################################################################################################################
@@ -24,10 +24,10 @@ with open('logs/data.csv','r') as csvinput:
                     writer.writerow(row+['Command Injection'])
                 elif int(row[4]) == 0 and float(row[3]) < bottle_ub and float(row[1]) > tank_lb:
                     writer.writerow(row+['Command Injection'])
-                ###########################################################
-                ### For MitM/DoS attacks as well as TCP SYN flood attacks
+                ################################################################################
+                ### For Network DoS: MitM attacks as well as Network DoS: TCP SYN flood attacks
                 ### Anomaly if flowlevel or bottle_ll is marked as 999
-                ###########################################################
+                ################################################################################
                 elif float(row[2]) == 999 or float(row[3]) == 999:
                     writer.writerow(row+['Network DoS'])
                 #Final case
