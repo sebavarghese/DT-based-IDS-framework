@@ -43,7 +43,7 @@ The collected dataset is stored as 'data.csv' in logs folder.
 
 Automated labelling of the generated dataset is done in two steps: 
 
-1) Run label.py script to label dataset based on threshold conditions (For false data injection and DoS)
+1) Run label.py script to label dataset based on threshold conditions (For command injection and network DoS)
    ```
    python label.py
    ```
